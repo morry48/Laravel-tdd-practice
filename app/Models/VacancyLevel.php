@@ -6,6 +6,11 @@ class VacancyLevel
 {
     private $remainingCount;
 
+    public function __toString()
+    {
+        return $this->mark();
+    }
+
     public function __construct(int $remainingCount)
     {
         $this->remainingCount = $remainingCount;
