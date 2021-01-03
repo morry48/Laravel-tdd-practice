@@ -9,7 +9,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Reservation::class, function (Faker $faker) {
     return [
-        'lesson_id' => null,
-        'user_id' => null,
+        'lesson_id' => function () {
+            return factory(Lesson::class)->create()->id;
+        },
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
     ];
 });
